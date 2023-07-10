@@ -93,22 +93,22 @@ stepCounter.totalSteps = 747
 //---------------------------------------------------------
 
 
-// 제너릭 함수 예제
-func mergeInfo<T, U>(_ infoOne: T, _ infoTwo: U) -> String {
-    return "\(infoOne) : \(infoTwo)"
+// 제너릭 예제
+func mergeInfo<T, U>(_ info1: T, _ info2: U) -> String {
+    return "\(info1) : \(info2)"
 }
 
-print(mergeInfo("UK", 89))
-print(mergeInfo("CHina", 34))
-print(mergeInfo("Mexico", 73.2))
-print(mergeInfo(184, 840.895))
+print(mergeInfo("Korea", 100))
+print(mergeInfo("Japan", 95))
+print(mergeInfo("United States", 39.95))
+print(mergeInfo(501, 591.32))
 
 
 //---------------------------------------------------------
 
 
 // String 배열 만드는 여러가지 방법
-var names1: [String] = ["Kim", "SeGuen"]
+var names1: [String] = ["kim", "Seguen"]
 
 var names2 = [String]()
 var names3: [String] = .init()
@@ -129,8 +129,8 @@ func swapTwoInts(_ a: inout Int, _ b: inout Int) {
     b = temporaryA
 }
 
-var someInt = 20
-var anotherInt = 381
+var someInt = 3
+var anotherInt = 107
 
 swapTwoInts(&someInt, &anotherInt)
 
@@ -178,10 +178,43 @@ sortedNames = names.sorted(by: >)
 print(sortedNames)
 
 
+//----------------------------------------------------------------------
+
+
+let digitNames: [Int:String] = [
+    0: "영",
+    1: "일",
+    2: "이",
+    3: "삼",
+    4: "사",
+    5: "오",
+    6: "육",
+    7: "칠",
+    8: "팔",
+    9: "구"
+]
+
+let numbers: [Int] = [32, 1, 280]
+
+let strings: [String] = numbers.map { (number) -> String in
+    var number = number // shadow copy
+    var output: String = ""
+    
+    repeat {
+        let digitName: String = digitNames[number % 10] ?? ""
+        output = digitName + output
+        number /= 10
+    } while number > 0
+    
+    return output
+}
+
+print(strings)
+
 //---------------------------------------------------------
-
-
 //고차함수 reduce(클로저)
+
+
 let numberss = [1,2,3,4,5]
 let sum = numberss.reduce(3) { (result, number) in
     return result + number
