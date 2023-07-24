@@ -17,6 +17,6 @@
 
 20230723 AutoLayout 구조 및 제약 조건, etc 이론 자습
 
-20230724 @StateObject, @ObservedObject  [프로퍼티 래퍼 학습]
+20230724 @StateObject, @ObservedObject  [프로퍼티 래퍼] 학습
 
 20230725
